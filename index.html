@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f6f6f4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0f1013" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -15,18 +15,18 @@
 <title>프로젝트 매니저</title>
 <style>
 :root{
-  --bg:#f6f6f4;--card:#ffffff;--text:#16181d;--muted:#8a8f99;--line:#ebebe8;
-  --ink:#1f2a44;--accent:#3b4a8a;--accent-soft:#eceef6;
+  --bg:#f2f2f7;--card:#ffffff;--text:#1c1c1e;--muted:#8e8e93;--line:#e5e5ea;
+  --ink:#007aff;--accent:#007aff;--accent-soft:rgba(0,122,255,.09);
   --s:84%;--l0:40%;--l1:52%;--l2:64%;--gl:#c9ccd3;
-  --ok:#4f8f73;--doing:#4a73b0;--plan:#a9aeb9;--bad:#c4524c;--warn:#bf8a35;--spot:#8a63b3;
-  --we:rgba(110,118,135,.13);--wecell:#f1f1ef;--lw:210px;
-  --shadow:0 1px 2px rgba(20,24,35,.05),0 8px 24px rgba(20,24,35,.08);
+  --ok:#34c759;--doing:#007aff;--plan:#aeaeb2;--bad:#ff3b30;--warn:#ff9500;--spot:#af52de;
+  --we:rgba(60,60,67,.07);--wecell:#f7f7fa;--lw:210px;
+  --shadow:0 2px 6px rgba(0,0,0,.06),0 12px 32px rgba(0,0,0,.12);
 }
 @media(prefers-color-scheme:dark){:root{
-  --bg:#0f1013;--card:#16171b;--text:#ececef;--muted:#8d929c;--line:#25272d;
-  --ink:#e6e9f5;--accent:#a3b1e6;--accent-soft:#1d2030;
-  --ok:#6fb594;--doing:#7aa2dc;--plan:#6b717c;--bad:#e07a74;--warn:#d9a95a;--spot:#b392d8;
-  --we:rgba(255,255,255,.05);--wecell:#131418;
+  --bg:#000000;--card:#1c1c1e;--text:#f2f2f7;--muted:#98989d;--line:#38383a;
+  --ink:#0a84ff;--accent:#0a84ff;--accent-soft:rgba(10,132,255,.16);
+  --ok:#30d158;--doing:#0a84ff;--plan:#636366;--bad:#ff453a;--warn:#ff9f0a;--spot:#bf5af2;
+  --we:rgba(255,255,255,.05);--wecell:#121214;
   --s:80%;--l0:70%;--l1:60%;--l2:50%;--gl:#3a3d46;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.4);
 }}
@@ -296,6 +296,77 @@ img.mg.ok{box-shadow:0 0 0 2px var(--ok)}
 .tll .cd{width:7px;height:7px}
 .tt b{font-size:12.5px}.tt .chip.lvb,.tt .lvl{min-width:16px;height:16px;font-size:9.5px;padding:0 3px}
 .ag b{font-size:12.5px}.tdr{font-size:12.5px}}
+
+/* ================= iOS 스타일 ================= */
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Apple SD Gothic Neo","Pretendard","Malgun Gothic","Segoe UI",sans-serif;letter-spacing:-.011em}
+/* 큰 제목 + 파란 아이콘 */
+header.top{padding:calc(env(safe-area-inset-top) + 10px) 18px 2px}
+.ttl h1{font-size:30px;font-weight:700;letter-spacing:-.035em;line-height:1.1}
+.ttl span{font-size:13px;margin-top:3px;color:var(--muted)}
+.ib{width:38px;height:38px;border-radius:50%;color:var(--accent)}
+.ib:hover{background:var(--accent-soft);color:var(--accent)}
+.ib:active{opacity:.55}
+/* 탭 → 분할 컨트롤(Segmented) */
+nav.tabs{gap:0;margin:8px 16px 4px;padding:2px;border:0;border-radius:9px;background:rgba(118,118,128,.14);display:flex}
+nav.tabs button{flex:1;padding:6px 0;border-radius:7px;text-align:center;font-size:13px;font-weight:600;color:var(--text);opacity:.72;transition:background .2s,box-shadow .2s,opacity .2s}
+nav.tabs button.on{background:var(--card);opacity:1;box-shadow:0 3px 8px rgba(0,0,0,.12),0 1px 1px rgba(0,0,0,.06)}
+nav.tabs button.on::after{display:none}
+@media(prefers-color-scheme:dark){nav.tabs button.on{background:#636366;box-shadow:0 2px 6px rgba(0,0,0,.4)}}
+/* 필터: 검색창/선택 */
+.filters{padding:8px 16px 10px;gap:8px}
+.filters select,.filters input{background:rgba(118,118,128,.12);border:0;border-radius:10px;padding:8px 12px;font-size:15px;height:36px}
+.filters input::placeholder{color:var(--muted)}
+.filters input:focus,.filters select:focus{background:rgba(118,118,128,.18);border:0;box-shadow:0 0 0 2px var(--accent-soft)}
+.seg{background:rgba(118,118,128,.14);border-radius:9px;padding:2px}
+.seg button{border-radius:7px;padding:5px 12px;color:var(--text);opacity:.72;font-size:13px}
+.seg button.on{background:var(--card);opacity:1;box-shadow:0 3px 8px rgba(0,0,0,.12),0 1px 1px rgba(0,0,0,.06)}
+@media(prefers-color-scheme:dark){.seg button.on{background:#636366}}
+/* 카드형 오늘 할일 / 동기화 안내 */
+#todayPanel{margin:8px 16px 0;border:0;border-radius:14px;box-shadow:0 0 0 .5px rgba(60,60,67,.12)}
+#syncBanner{border:0;border-radius:14px;background:color-mix(in srgb,var(--warn) 14%,var(--card));margin:8px 16px 0}
+#syncBanner button{background:var(--accent);border-radius:999px;padding:6px 14px}
+/* 버튼 */
+.primary{background:var(--accent);color:#fff;border-radius:12px;padding:11px 18px;font-weight:600}
+.primary:active,.fab:active{opacity:.75}
+.ghost{background:rgba(118,118,128,.12);border-radius:12px;color:var(--accent);font-weight:600}
+.danger{border-radius:12px}
+.fab{background:var(--accent);color:#fff;border-radius:999px;box-shadow:0 6px 20px color-mix(in srgb,var(--accent) 45%,transparent),0 2px 6px rgba(0,0,0,.15)}
+/* 칩: 캡슐형 */
+.chip{border-radius:999px;padding:2px 9px;font-weight:600}
+.cnt{border-radius:999px}
+.mbtn{border:0;background:rgba(118,118,128,.12);color:var(--accent);border-radius:999px;font-weight:600}
+.mbtn.on{background:var(--accent);color:#fff}
+/* 표: 가는 구분선, 블러 머리글 */
+.tbl th{background:color-mix(in srgb,var(--card) 80%,transparent);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);font-size:11.5px;font-weight:600;letter-spacing:.01em;border-bottom:.5px solid var(--line)}
+.tbl td{border-bottom:.5px solid var(--line)}
+.tbl tr.sec td{font-size:12.5px;text-transform:none;letter-spacing:0}
+.tbl tr[data-id]:active{--rb:var(--accent-soft)}
+.tlrow{border-bottom:.5px solid var(--line)}
+.tbl td.first,.tbl th.first{border-right:.5px solid var(--line)}
+.tll{border-right:.5px solid var(--line)}
+.tbl th.first,.tlrow.h1,.tlrow.h2{-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px)}
+.pbar{border-radius:999px}
+/* 시트(모달): iOS 바텀시트 */
+.ov{background:rgba(0,0,0,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.sheet{border-radius:14px 14px 0 0;padding-top:26px;position:relative;box-shadow:0 -8px 40px rgba(0,0,0,.18)}
+.sheet::before{content:'';position:absolute;top:8px;left:50%;width:36px;height:5px;margin-left:-18px;border-radius:3px;background:rgba(60,60,67,.3)}
+@media(min-width:700px){.sheet{border-radius:16px}.sheet::before{display:none}.sheet{padding-top:22px}}
+.sheet h2{font-size:20px;font-weight:700;letter-spacing:-.025em}
+input,select,textarea{border-radius:10px;background:rgba(118,118,128,.1)}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);background:var(--card)}
+.fl>span{font-size:12.5px;font-weight:500}
+input[type=checkbox],input[type=radio]{accent-color:var(--accent)}
+/* 토스트: 반투명 알약 */
+#toast{background:rgba(44,44,46,.86);color:#fff;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-radius:999px;padding:10px 18px;font-weight:500;box-shadow:0 8px 28px rgba(0,0,0,.25)}
+/* 캘린더 */
+.cal{padding:6px 16px 18px}
+.calhd h2{font-size:22px;font-weight:700;letter-spacing:-.03em}
+.calhd .ghost{background:rgba(118,118,128,.12);border:0}
+.cell.sel{box-shadow:inset 0 0 0 2px var(--accent)}
+.cell.td .dn{background:var(--accent);color:#fff}
+.dh.td{background:var(--accent);color:#fff}
+@media(max-width:700px){.ttl h1{font-size:28px}}
+
 /* ---- 타임라인: 단계별 막대 + 프로젝트 색 (심플) ---- */
 .tlrow:not(.h1):not(.h2):not(.tsec) .tll{box-shadow:inset 3px 0 0 hsl(var(--h) var(--s) var(--l0))}
 .tlrow.r0:not(.tsec) .tll b{font-weight:650}
