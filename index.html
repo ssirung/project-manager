@@ -310,6 +310,10 @@ img.mg.ok{box-shadow:0 0 0 2px var(--ok)}
 .bar.done{opacity:.5}
 .tlrow.dsub .bar.d1{top:7px;height:14px}.tlrow.dsub .bar.d2{top:11px;height:8px}
 @media(prefers-color-scheme:dark){.bar.d0{background:color-mix(in srgb,var(--c) 34%,var(--card))}.bar.d1{background:color-mix(in srgb,var(--c) 30%,var(--card))}.bar.d2{background:color-mix(in srgb,var(--c) 26%,var(--card))}.bar.late{box-shadow:inset 0 0 0 1px var(--bad)}}
+/* 프로젝트 구분선: 굵기는 1px 그대로, 색만 진하게 */
+.tlrow.r0:not(.tsec){border-top:1px solid color-mix(in srgb,var(--text) 38%,var(--line))}
+.tbl tr.lv0:not(.sec) td{border-top:1px solid color-mix(in srgb,var(--text) 38%,var(--line))}
+.tbl tr.sec+tr.lv0 td{border-top:0}
 </style>
 </head>
 <body>
